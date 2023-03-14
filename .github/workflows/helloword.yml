@@ -17,9 +17,9 @@ jobs:
         password: ${{secrets.PSI2M_CD_DOCKER_PASSWORD}}
     steps:
       - name: Call Ansible Playbook workflow
-        uses: playbookworkflow.yml
+        uses: actions/checkout@v3
         with:
-          workflow: Ansible Playbook
+          workflow: playbookworkflow.yml
           ref: windows-ssh-connection
           inputs: |
             {
