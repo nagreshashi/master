@@ -1,0 +1,28 @@
+name: Main Workflow
+
+on:
+  push:
+    branches: [ windows-ssh-connection ]
+jobs:
+  call-ansible-playbook:
+    runs-on:
+      - self-hosted
+      - linux
+      - X64
+      - philips
+    container:
+      image: dl-innersource-docker-local.artifactory-ehv.ta.philips.com/psi2m_asp_build_container:0.20
+      credentials:
+        username: ${{secrets.PSI2M_CD_DOCKER_USERNAME}}
+        password: ${{secrets.PSI2M_CD_DOCKER_PASSWORD}}
+    steps:
+      - name: Call Ansible Playbook workflow
+        uses: actions/checkout@v3
+        with:
+          workflow: playbookworkflow.yml
+          ref: windows-ssh-connection
+          inputs: |
+            {
+              "inventory_file": "inventory.ini",
+              "extra_vars": "my_var=value"
+            }
