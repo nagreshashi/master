@@ -3,7 +3,6 @@ name: Main Workflow
 on:
   push:
     branches: [ windows-ssh-connection ]
----
 jobs:
   call-ansible-playbook:
     runs-on:
