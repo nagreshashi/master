@@ -1,0 +1,14 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - windows-ssh-connection
+
+jobs:
+  execute-ansible-playbook:
+    name: Execute Ansible playbook
+    uses: ./.github/workflows/playbookworkflow.yml
+    secrets:
+      secureusername: ${{ secrets.secureusername }}
+      securepassword: ${{ secrets.securepassword }}
