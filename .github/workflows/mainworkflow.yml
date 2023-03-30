@@ -13,6 +13,8 @@ jobs:
   my_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
       - name: Print environment input value
         run: echo "Environment selected:${{ github.event.inputs.environment }}"
       - name: envirnment value passing to reusable workflow
