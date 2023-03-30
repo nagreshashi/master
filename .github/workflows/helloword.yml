@@ -1,1 +1,13 @@
+on:
+  workflow_call:
+  
+env:
+  ENVIRONMENT: ${{ inputs.environment }}
 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to ${ENVIRONMENT}
+        run: |
+          echo "Deploying to ${ENVIRONMENT}"
