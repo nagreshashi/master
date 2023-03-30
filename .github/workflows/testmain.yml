@@ -7,8 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-#      - name: Checkout Repository
-#        uses: actions/checkout@v3
+    
+     - name: Checkout Repository
+       uses: actions/checkout@v3
 
      - name: Deploy to ${environment}
        run: |
