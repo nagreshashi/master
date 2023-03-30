@@ -8,6 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to ${ENVIRONMENT}
-        run: |
+     - name: Checkout Repository
+       uses: actions/checkout@v3
+       
+     - name: Deploy to ${ENVIRONMENT}
+       run: |
           echo "Deploying to ${ENVIRONMENT}"
