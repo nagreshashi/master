@@ -10,7 +10,9 @@ on:
         required: true 
 
 jobs:
-  execute-ansible-playbook:
-    name: Execute Ansible playbook
-    uses: ./.github/workflows/helloword.yml
-    secrets: inherit
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print environment input value
+        run: echo "Environment selected:${{ github.event.inputs.<input_name> }}"
+  
