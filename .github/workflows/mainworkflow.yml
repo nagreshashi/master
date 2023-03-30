@@ -21,7 +21,4 @@ jobs:
         
       - name: envirnment value passing to reusable workflow
         with:
-          repository: nagreshashi
-          ref: master
-          path: .
           environment: ${{ github.event.inputs.environment }}
