@@ -20,6 +20,8 @@ jobs:
         run: echo "Environment selected:${{ github.event.inputs.environment }}"
         
       - name: envirnment value passing to reusable workflow
-        uses: actions/checkout@v3
         with:
+          repository: nagreshashi
+          ref: master
+          path: .
           environment: ${{ github.event.inputs.environment }}
