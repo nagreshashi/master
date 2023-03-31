@@ -12,4 +12,4 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/reuseable.yml
     with:
-      env: ${{ github.event.inputs.environment }}
+      environment: ${{ github.event.inputs.environment }}
