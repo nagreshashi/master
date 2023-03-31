@@ -10,7 +10,7 @@ on:
         required: true 
 
 jobs:
-  my_job:
+  print_ENV:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -19,6 +19,6 @@ jobs:
       - name: Print environment input value
         run: echo "Environment selected:${{ github.event.inputs.environment }}"
         
-#       - name: envirnment value passing to reusable workflow
-#         with:
-#           environment: ${{ github.event.inputs.environment }}
+      - name: envirnment value passing to reusable workflow
+        with:
+          environment: ${{ github.event.inputs.environment }}
