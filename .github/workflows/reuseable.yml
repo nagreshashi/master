@@ -2,9 +2,10 @@
 
 on:
   workflow_call:
-env:
-  environment: ''
-
+    inputs:
+      env:
+      required: true
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,6 +14,6 @@ jobs:
      - name: Checkout Repository
        uses: actions/checkout@v1
 
-     - name: Deploy to ${github.event.inputs.environment}
+     - name: Deploy to ${github.event.inputs.env}
        run: |
-         echo "Deploying to ${github.event.inputs.environment}"
+         echo "Deploying to ${github.event.inputs.env}"
