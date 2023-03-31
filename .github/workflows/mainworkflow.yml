@@ -1,11 +1,11 @@
 # This is my Mainworkflow
+
 on:
   workflow_dispatch:
     inputs:
       environment:
         description: 'Name of the environment to deploy to (DEV, QA, PROD)'
         required: true
-        
 
 jobs:
   call-workflow-passing-data:
