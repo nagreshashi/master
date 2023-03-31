@@ -18,10 +18,11 @@ jobs:
         run: echo "Environment selected:${{ github.event.inputs.environment }}"
         
         
-      - name: envirnment value passing to reusable workflow 
+      - name: envirnment value passing to reusable workflow
+        uses: ./.github/workflows/reuseable.yml
         env:
           environment: ${{ github.event.inputs.environment }}
-        uses: ./.github/workflows/reuseable.yml       
+             
         
         
 #       - name: Deploy to environment
