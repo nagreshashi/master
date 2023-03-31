@@ -1,10 +1,13 @@
 # This is my reusable worflow
 
 on:
+  push:
+    branches:
+      - main
   workflow_call:
     inputs:
-      env:
-      required: true
+        environment:
+        required: true
       
 jobs:
   deploy:
@@ -14,6 +17,6 @@ jobs:
      - name: Checkout Repository
        uses: actions/checkout@v1
 
-     - name: Deploy to ${github.event.inputs.env}
+     - name: Deploy to ${github.event.inputs.environment}
        run: |
-         echo "Deploying to ${github.event.inputs.env}"
+         echo "Deploying to ${github.event.inputs.environment}"
