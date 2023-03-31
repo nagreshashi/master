@@ -7,25 +7,40 @@ on:
         description: 'Name of the environment to deploy to (DEV, QA, PROD)'
         required: true 
 
+# jobs:
+#   reusable_workflow_job:
+#     runs-on: ubuntu-latest
+#     environment: ${{ github.event.inputs.environment }}
+    
+    
+#     steps:
+#     - uses: actions/labeler@v4
+#       with:
+        
+
 jobs:
-  print_ENV:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v1
+  call-workflow-passing-data:
+    uses: ./.github/workflows/reuseable.yml
+    with:
+      environment: ${{ github.event.inputs.environment }}
+      run: echo "Environment selected:${{ github.event.inputs.environment }}"
+    
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v1
         
-      - name: Print environment input value
-        run: echo "Environment selected:${{ github.event.inputs.environment }}"
+#       - name: Print environment input value
+#         run: echo "Environment selected:${{ github.event.inputs.environment }}"
         
         
-      - name: envirnment value passing to reusable workflow
-        uses: ./.github/workflows/reuseable.yml
-        env:
-          environment: ${{ github.event.inputs.environment }}
+#       - name: envirnment value passing to reusable workflow
+#         uses: ./.github/workflows/reuseable.yml
+#         env:
+#           environment: ${{ github.event.inputs.environment }}
              
         
         
-#       - name: Deploy to environment
-#         uses: ./.github/workflows/testmain.yml
-#         with:
-#          environment: ${{ github.event.inputs.environment }}
+# #       - name: Deploy to environment
+# #         uses: ./.github/workflows/testmain.yml
+# #         with:
+# #          environment: ${{ github.event.inputs.environment }}
