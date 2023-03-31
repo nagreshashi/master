@@ -22,8 +22,8 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/reuseable.yml
     with:
-      environment: ${{ github.event.inputs.environment }}
-      run: echo "Environment selected:${{ github.event.inputs.environment }}"
+      env: ${{ github.event.inputs.environment }}
+#       run: echo "Environment selected:${{ github.event.inputs.environment }}"
     
 #     steps:
 #       - name: Checkout Repository
