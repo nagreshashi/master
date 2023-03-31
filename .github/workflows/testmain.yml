@@ -11,6 +11,6 @@ jobs:
      - name: Checkout Repository
        uses: actions/checkout@v3
 
-     - name: Deploy to ${environment}
+     - name: Deploy to ${inputs.environment}
        run: |
-          echo "Deploying to ${environment}"
+         echo "Deploying to ${inputs.environment}"
