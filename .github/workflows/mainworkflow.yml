@@ -15,12 +15,14 @@ jobs:
       - name: Print environment input value
         run: echo "Environment selected:${{ github.event.inputs.environment }}"
         
-      - name: envirnment value passing to reusable workflow
+        
+      - name: envirnment value passing to reusable workflow 
         env:
           environment: ${{ github.event.inputs.environment }}
-        run: echo "Environment to deploy:${{ env.environment }}"
+        uses: ./.github/workflows/testmain.yml        
         
-      - name: Deploy to environment
-        uses: ./.github/workflows/testmain.yml
-        with:
-         environment: ${{ github.event.inputs.environment }}
+        
+#       - name: Deploy to environment
+#         uses: ./.github/workflows/testmain.yml
+#         with:
+#          environment: ${{ github.event.inputs.environment }}
