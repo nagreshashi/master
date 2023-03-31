@@ -6,6 +6,8 @@ on:
       environment:
         description: 'Name of the environment to deploy to (DEV, QA, PROD)'
         required: true
+env:
+ INPUT_LOG_LEVEL: ${{ github.event.inputs.environment }}
 
 jobs:
   call-workflow-passing-data:
