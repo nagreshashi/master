@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 env:  
-    environment: ${{ inputs.environment }}
+    environment: ${{ github.event.inputs.environment }}
 
 jobs:
   deploy:
