@@ -19,3 +19,8 @@ jobs:
         env:
           environment: ${{ github.event.inputs.environment }}
         run: echo "Environment to deploy:${{ env.environment }}"
+        
+      - name: Deploy to environment
+        uses: ./.github/workflows/testmain.yml
+        with:
+         environment: ${{ github.event.inputs.environment }}
